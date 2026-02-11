@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
     new Typed('#typed-subtitle', {
       strings: [
         "Product Manager",
-        "Especialista em Ciclo de Vida de Produtos",
+        "Inteligência artificial para negócios",
         "Estrategista Go-To-Market",
-        "Entusiasta de IA Generativa"
+        "Product Lifecycle Management",
+        "Product Strategy",
+        "Agile e Scrum",
+        "Desenvolvimento de produtos digitais"
       ],
       typeSpeed: 50,
       backSpeed: 30,
