@@ -17,7 +17,7 @@ Portfólio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
 
 ## 🌐 Visualizar Online
 
-👉 [https://alessander-dutra.github.io/portfolio](https://alessander-dutra.github.io/portfolio)
+👉 [https://alessander-dutra.github.io/portfolio](https://alessander-dutra.github.io/Portfolio)
 
 > (Substitua `alessander-dutra` pelo seu nome de usuário do GitHub se você for clonar este repositório)
 
