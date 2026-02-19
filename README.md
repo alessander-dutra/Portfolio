@@ -49,19 +49,3 @@ Este projeto usa o Tailwind CSS via CDN para facilitar o desenvolvimento rápido
 Dica de desenvolvimento local (opcional): para reduzir o tamanho em produção e usar classes customizadas, configure o Tailwind com PostCSS e gere um CSS compilado em vez de usar a CDN.
 
 ---
-
-## 📨 Configurando o formulário (Formspree)
-
-O formulário de contato do projeto usa o Formspree. Se ao enviar você vê o erro "Form not found — Please check the form hashid", siga estes passos:
-
-1. Acesse <https://formspree.io> e crie uma conta (ou faça login).
-1. Crie um novo formulário e copie o endpoint fornecido no formato: `https://formspree.io/f/SEU_HASH`.
-1. No arquivo `index.html`, procure a linha do formulário:
-
-```html
-<form action="https://formspree.io/f/xxxxxxxx" method="POST">
-```
-
-1. Substitua `xxxxxxxx` pelo `SEU_HASH` que o Formspree retornou.
-
-Se preferir não configurar o Formspree, você pode usar um serviço alternativo, um endpoint próprio, ou eu posso adicionar um fallback `mailto:`/simples para testes locais.
