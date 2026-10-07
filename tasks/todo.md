@@ -47,12 +47,13 @@
 **Critérios de aceitação:**
 - [x] Os links de navegação apontam para seções existentes e a versão mobile possui alternativa acessível.
 - [x] Hero usa apenas nome, cargos, contatos e imagem reais; nenhuma disponibilidade ou currículo é presumida.
+- [x] A composição inclui cabeçalho flutuante, hero amplo, faixa de especialidades e dock de navegação inspirados no modelo de referência.
 - [x] Tema respeita preferência inicial do sistema, persiste escolha e possui foco/estado acessível.
 
 **Verificação:**
 - [x] Testar navegação e alternância de tema com teclado.
 - [x] Conferir a navegação, hierarquia visual, foto e destinos exibidos no navegador local.
-- [x] Verificar responsividade e ausência de rolagem horizontal em 320 px, 390 px, 768 px, 1024 px e 1440 px.
+- [x] Verificar responsividade e ausência de rolagem horizontal em 320 px, 390 px, 768 px, 1024 px e 1440 px; conferir imagem e navegação flutuante.
 
 **Dependências:** Tarefas 1 e 2.
 

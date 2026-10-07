@@ -6,7 +6,7 @@ import {
   SiteFooter,
 } from "./components/PortfolioSections";
 import { CompetenciesSection } from "./components/CompetenciesSection";
-import { HeroSection } from "./components/HeroSection";
+import { ExpertiseStrip, HeroSection } from "./components/HeroSection";
 import { JourneySection } from "./components/JourneySection";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -39,6 +39,7 @@ export default function App() {
       <SiteHeader isDark={isDark} onToggleTheme={toggleTheme} />
       <main id="conteudo" className="page-content">
         <HeroSection />
+        <ExpertiseStrip />
         <AboutSection />
         <CompetenciesSection />
         <ProjectsSection />

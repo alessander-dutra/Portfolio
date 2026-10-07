@@ -33,7 +33,7 @@ describe("portfolio application shell", () => {
       "Sobre",
       "Competências",
       "Projetos",
-      "Trajetória",
+      "Carreira",
       "Contato",
     ]) {
       const link = within(navigation).getByRole("link", { name: label });
@@ -44,6 +44,46 @@ describe("portfolio application shell", () => {
         expect(document.getElementById(targetId)).toBeInTheDocument();
       }
     }
+  });
+
+  it("uses a floating portfolio header and an accessible section dock", () => {
+    render(<App />);
+
+    expect(
+      screen.getByRole("link", { name: "Alessander Dutra, início" }),
+    ).toHaveTextContent("Portfólio");
+
+    const dock = screen.getByRole("navigation", {
+      name: "Navegação rápida",
+    });
+    for (const label of ["Início", "Sobre", "Projetos", "Carreira", "Contato"]) {
+      expect(within(dock).getByRole("link", { name: label })).toHaveAttribute(
+        "href",
+      );
+    }
+  });
+
+  it("introduces the portfolio with a greeting and a profile image", () => {
+    render(<App />);
+
+    expect(screen.getByText("Olá, eu sou")).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: "Alessander Dutra" }),
+    ).toBeInTheDocument();
+  });
+
+  it("shows verified specialties as a horizontal strip beneath the hero", () => {
+    render(<App />);
+
+    const specialties = screen.getByRole("list", {
+      name: "Áreas de atuação",
+    });
+    expect(within(specialties).getByText("Estratégia de produto")).toBeInTheDocument();
+    expect(within(specialties).getByText("IA generativa")).toBeInTheDocument();
+    expect(within(specialties).getByText("Meios de pagamento")).toBeInTheDocument();
+    expect(specialties.compareDocumentPosition(document.getElementById("sobre")!)).toBe(
+      Node.DOCUMENT_POSITION_FOLLOWING,
+    );
   });
 
   it("uses the system color preference when no saved theme exists", () => {
@@ -99,12 +139,17 @@ describe("portfolio application shell", () => {
   it("groups professional competencies separately from certifications", () => {
     render(<App />);
 
+    const competencies = screen.getByRole("region", { name: "Competências" });
     expect(
-      screen.getByRole("heading", { level: 2, name: "Competências" }),
+      within(competencies).getByRole("heading", { level: 2, name: "Competências" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("Estratégia de produto")).toBeInTheDocument();
-    expect(screen.getByText("IA generativa")).toBeInTheDocument();
-    expect(screen.getByText("Meios de pagamento e PCI-DSS")).toBeInTheDocument();
+    expect(
+      within(competencies).getByText("Estratégia de produto"),
+    ).toBeInTheDocument();
+    expect(within(competencies).getByText("IA generativa")).toBeInTheDocument();
+    expect(
+      within(competencies).getByText("Meios de pagamento e PCI-DSS"),
+    ).toBeInTheDocument();
   });
 
   it("shows the three real Altec roles in reverse chronological order", () => {

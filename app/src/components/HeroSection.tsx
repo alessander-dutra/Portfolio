@@ -1,14 +1,18 @@
-import profileImage from "../../../assets/img/profile.jpeg";
+import profileImage from "../../../assets/img/portife2.jpeg";
 
 export function HeroSection() {
   return (
     <section id="inicio" className="hero-section" aria-labelledby="hero-title">
       <div className="hero-copy">
+        <p className="hero-greeting">Olá, eu sou</p>
         <p className="portfolio-eyebrow">
-          Product Manager <span aria-hidden="true">·</span> Produtos digitais{" "}
-          <span aria-hidden="true">·</span> IA
+          Product Manager <span aria-hidden="true">·</span> São Paulo, Brasil
         </p>
-        <h1 id="hero-title">Alessander Dutra</h1>
+        <h1 id="hero-title">
+          <span>Alessander</span>
+          {" "}
+          <span>Dutra</span>
+        </h1>
         <p className="portfolio-intro">
           Estratégia de produto, tecnologia e inteligência artificial a serviço
           de resultados.
@@ -80,6 +84,25 @@ export function HeroSection() {
           </dl>
         </div>
       </aside>
+    </section>
+  );
+}
+
+export function ExpertiseStrip() {
+  return (
+    <section className="expertise-strip" aria-label="Especialidades profissionais">
+      <ul aria-label="Áreas de atuação">
+        {[
+          "Estratégia de produto",
+          "IA generativa",
+          "Meios de pagamento",
+          "Dados e analytics",
+          "Cloud",
+          "Low-code",
+        ].map((specialty) => (
+          <li key={specialty}>{specialty}</li>
+        ))}
+      </ul>
     </section>
   );
 }
