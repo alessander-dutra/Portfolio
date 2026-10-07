@@ -98,9 +98,24 @@ O checklist detalhado, com critérios de aceitação, verificação, dependênci
 - [x] Conteúdo de competências, projetos e trajetória foi conferido com a página estática original; links provisórios não foram introduzidos.
 
 ### Fase 3 — Complementos e acabamento
-- [ ] Tarefa 6: Integrar formação, certificações e publicações sem duplicação.
-- [ ] Tarefa 7: Integrar recomendações, contato e rodapé com canais válidos.
+- [x] Tarefa 6: Integrar formação, certificações e publicações sem duplicação. (48 cursos/credenciais em lista expansível; duas publicações com destinos existentes.)
+- [x] Tarefa 7: Integrar recomendações, contato e rodapé com canais válidos.
 - [ ] Tarefa 8: Validar acessibilidade, responsividade, SEO, build e publicação.
+
+### Ponto de controle — Seções solicitadas nas referências
+- [x] Trajetória apresentada em cartões alternados e responsivos.
+- [x] Formação acadêmica e competências agrupadas em seções próprias, usando dados existentes.
+- [x] Recomendações, contato e rodapé incluídos sem reutilizar conteúdo fictício do site de referência.
+- [x] Suíte local (24 testes) e build de produção aprovados; revisão visual local realizada.
+- [x] Cursos/credenciais e publicações apresentados sem links inventados; a navegação inclui a seção de Publicações.
+- [ ] Validação/publicação final do GitHub Pages permanece pendente.
+
+### Atualização baseada no LinkedIn
+- [x] Skills reorganizadas em produto, IA aplicada, dados/integrações e delivery/qualidade; itens adicionais ficam em disclosures nativos acessíveis.
+- [x] Hero ampliado para refletir IA aplicada, produtos de software/plataformas, produto digital e integrações.
+- [x] Serviços prestados adicionados usando as categorias fornecidas pelo titular.
+- [x] Inventário de 48 cursos e credenciais exibido com instituição e data; cursos adicionais podem ser expandidos e credenciais sem URL não recebem links inventados.
+- [x] Duas publicações da página estática migradas uma vez cada, com seus títulos, datas e destinos existentes.
 
 ### Ponto de controle — Entrega
 - [ ] Build e testes passam; fluxo de navegação e contatos foi verificado.

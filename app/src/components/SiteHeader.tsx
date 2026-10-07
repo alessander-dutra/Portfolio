@@ -3,17 +3,19 @@ import { useState } from "react";
 const navigationLinks = [
   { href: "#inicio", label: "Início" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#competencias", label: "Competências" },
-  { href: "#projetos", label: "Projetos" },
+  { href: "#formacao", label: "Educação" },
+  { href: "#competencias", label: "Skills" },
   { href: "#trajetoria", label: "Carreira" },
+  { href: "#projetos", label: "Projetos" },
+  { href: "#publicacoes", label: "Publicações" },
   { href: "#contato", label: "Contato" },
 ];
 
 const quickLinks = [
   { href: "#inicio", label: "Início", icon: "M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z" },
   { href: "#sobre", label: "Sobre", icon: "M20 21a8 8 0 0 0-16 0m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" },
-  { href: "#competencias", label: "Competências", icon: "M4 20V11m5 9V5m5 15v-7m5 7V8M2 20h20" },
-  { href: "#projetos", label: "Projetos", icon: "M3 7h18v14H3zM8 7V4h8v3" },
+  { href: "#formacao", label: "Educação", icon: "m2 9 10-5 10 5-10 5L2 9Zm4 2v5c3.5 2.7 8.5 2.7 12 0v-5" },
+  { href: "#competencias", label: "Skills", icon: "M4 20V11m5 9V5m5 15v-7m5 7V8M2 20h20" },
   { href: "#trajetoria", label: "Carreira", icon: "M3 8h18v13H3zM8 8V5h8v3M3 12h18m-11 0v3h4v-3" },
   { href: "#contato", label: "Contato", icon: "m3 4 18 8-18 8 4-8-4-8Zm4 8h14" },
 ];

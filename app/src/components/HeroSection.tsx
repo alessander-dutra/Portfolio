@@ -10,6 +10,18 @@ const expertise = [
     icon: "m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Zm7 13 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z",
   },
   {
+    label: "IA aplicada a produtos",
+    icon: "m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Zm7 13 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z",
+  },
+  {
+    label: "Product Analytics",
+    icon: "M4 19V9h4v10m2 0V5h4v14m2 0v-7h4v7M2 20h20",
+  },
+  {
+    label: "SaaS e marketplaces",
+    icon: "M4 6h16v12H4zM4 10h16M8 15h3",
+  },
+  {
     label: "Meios de pagamento",
     icon: "M4 6h16v12H4zM4 10h16M8 15h3",
   },
@@ -65,7 +77,9 @@ export function HeroSection() {
       <div className="hero-copy">
         <p className="hero-greeting">Olá, eu sou</p>
         <p className="portfolio-eyebrow">
-          Product Manager <span aria-hidden="true">·</span> São Paulo, Brasil
+          IA aplicada <span aria-hidden="true">·</span> Especialista em produto
+          de software e plataformas <span aria-hidden="true">·</span> Product Manager
+          <span aria-hidden="true">·</span> São Paulo, Brasil
         </p>
         <h1 id="hero-title">
           <span>Alessander</span>
@@ -73,8 +87,8 @@ export function HeroSection() {
           <span>Dutra</span>
         </h1>
         <p className="portfolio-intro">
-          Estratégia de produto, tecnologia e inteligência artificial a serviço
-          de resultados.
+          Produto digital, IA aplicada, dados e integrações conectados a
+          resultados de negócio.
         </p>
         <div className="hero-actions">
           <a className="button button-primary" href="#projetos">
@@ -166,7 +180,7 @@ export function HeroSection() {
         <div className="profile-details">
           <p className="profile-label">PERFIL PROFISSIONAL</p>
           <h2>Alessander Dutra</h2>
-          <p>Product Manager</p>
+          <p>IA aplicada · Produto digital</p>
           <dl className="profile-facts">
             <div>
               <dt>Especialidade</dt>

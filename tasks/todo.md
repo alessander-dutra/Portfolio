@@ -102,17 +102,18 @@
 
 ## Tarefa 6: Integrar formação, certificações e publicações
 
-**Descrição:** Migrar formação, certificações e publicações para seções compactas. Corrigir a duplicidade do título “Publicações” e evitar que a lista extensa de cursos domine a página.
+**Descrição:** Migrar formação, cursos, credenciais e publicações para seções compactas. A formação está em seção própria; o inventário de 48 cursos e credenciais reunidos das capturas fornecidas e da página estática fica em área expansível, e as duas publicações verificadas aparecem uma única vez.
 
 **Critérios de aceitação:**
-- [ ] Formação, datas e instituições correspondem ao conteúdo atual confirmado.
-- [ ] Certificações são agrupadas/limitadas com mecanismo acessível para expandir o restante, caso necessário.
-- [ ] Cada publicação aparece uma vez, com título, data e destino válido.
+- [x] Formação, datas e instituição correspondem ao conteúdo atual confirmado (UNIASSELVI, Inteligência Artificial e Machine Learning, 2025–2027).
+- [x] Seleção de cursos e microcertificações é apresentada com instituição e data e os itens adicionais podem ser expandidos; credenciais sem URL não recebem links fabricados.
+- [x] Incluir os 48 cursos e credenciais identificados nas fontes fornecidas; não inventar links individuais de validação que não foram informados.
+- [x] Cada uma das duas publicações aparece uma vez, com título, data e destino já existente nas fontes.
 
 **Verificação:**
-- [ ] Conferir os nomes e links de origem.
-- [ ] Testar expandir/recolher com teclado e leitor de tela.
-- [ ] Executar build.
+- [x] Conferir nomes e destinos contra as capturas fornecidas e a página estática original.
+- [x] Manter expansão nativa via `<details>/<summary>` e validar sua interação nos testes.
+- [x] Executar suíte de testes e build de produção.
 
 **Dependências:** Tarefa 5.
 
@@ -122,17 +123,18 @@
 
 ## Tarefa 7: Integrar recomendações, contato e rodapé
 
-**Descrição:** Exibir recomendações verdadeiras com atribuição autorizada, preservar canais diretos atuais e criar rodapé conciso com navegação funcional. Não implantar formulário até que um serviço de envio real seja configurado.
+**Descrição:** Exibir recomendações existentes com autoria, preservar canais diretos atuais e criar rodapé conciso com navegação funcional. O formulário prepara uma mensagem `mailto` para o visitante enviar pelo próprio aplicativo de email; não simula envio pelo site.
 
 **Critérios de aceitação:**
-- [ ] Recomendações preservam texto e autoria confirmados e autorizados.
-- [ ] Email, LinkedIn e WhatsApp apontam para os destinos corretos; nenhum `href="#"` é usado como ação.
-- [ ] A página não afirma que uma mensagem foi enviada sem integração real; currículo só aparece quando o arquivo existir.
+- [x] Recomendações usam trechos e autores já presentes no conteúdo atual, sem reproduzir depoimentos fictícios da referência.
+- [x] Email, LinkedIn e WhatsApp apontam para os destinos disponíveis; nenhum `href="#"` é usado como ação.
+- [x] A página não afirma que uma mensagem foi enviada sem integração real; currículo só aparece quando o arquivo existir.
 
 **Verificação:**
-- [ ] Testar cada ação de contato e links internos no navegador.
-- [ ] Verificar foco, rótulos e estados do formulário caso uma integração seja aprovada.
-- [ ] Executar build.
+- [x] Verificar formulário, destinos visíveis e links internos no navegador e nos testes.
+- [x] Confirmar que os campos estão rotulados e que a ação informa que abrirá o aplicativo de email, sem simular envio.
+- [ ] Revisar foco e estados adicionais caso seja aprovada uma integração de envio pelo site.
+- [x] Executar suíte de testes e build de produção.
 
 **Dependências:** Tarefas 3 e 6.
 

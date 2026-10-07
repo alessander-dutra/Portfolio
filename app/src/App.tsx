@@ -6,8 +6,12 @@ import {
   SiteFooter,
 } from "./components/PortfolioSections";
 import { CompetenciesSection } from "./components/CompetenciesSection";
+import { EducationSection } from "./components/EducationSection";
 import { ExpertiseStrip, HeroSection } from "./components/HeroSection";
 import { JourneySection } from "./components/JourneySection";
+import { ProfileHighlightsSection } from "./components/ProfileHighlightsSection";
+import { PublicationsSection } from "./components/PublicationsSection";
+import { RecommendationsSection } from "./components/RecommendationsSection";
 import { SiteHeader } from "./components/SiteHeader";
 
 function getInitialTheme() {
@@ -41,9 +45,13 @@ export default function App() {
         <HeroSection />
         <ExpertiseStrip />
         <AboutSection />
-        <CompetenciesSection />
-        <ProjectsSection />
         <JourneySection />
+        <EducationSection />
+        <CompetenciesSection />
+        <ProfileHighlightsSection />
+        <ProjectsSection />
+        <PublicationsSection />
+        <RecommendationsSection />
         <ContactSection />
       </main>
       <SiteFooter />
