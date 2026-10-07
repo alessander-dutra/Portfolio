@@ -2,7 +2,7 @@
 
 ## Tarefa 1: Preparar aplicação React/Vite/TypeScript e build de Pages
 
-**Descrição:** Criar a base React, Vite e TypeScript preservando metadados essenciais. Configurar o `base` para o subdiretório `/Portfolio/` e gerar `dist/`. Manter a página estática atual servida até a nova experiência estar completa; a troca do workflow de publicação faz parte da validação final.
+**Descrição:** Criar a base React, Vite e TypeScript preservando metadados essenciais. Configurar o `base` para o subdiretório `/Portfolio/` e gerar `dist/`. Manter os arquivos estáticos atuais até a nova experiência estar completa; criar e ativar o workflow real de publicação na validação final, após confirmar a origem de Pages.
 
 **Critérios de aceitação:**
 - [x] A aplicação React é servida localmente pelo Vite e produz um build estático.
@@ -16,42 +16,42 @@
 
 **Dependências:** Nenhuma.
 
-**Arquivos prováveis:** `package.json`, configuração Vite/TypeScript e `app/index.html`.
+**Arquivos prováveis:** `package.json`, configuração Vite/TypeScript e `app/index.html`. O `deploy.yml` está na raiz, não no diretório de workflows do GitHub Actions.
 
 **Escopo estimado:** Médio (3–5 arquivos).
 
-## Tarefa 2: Inicializar Lightswind seletivamente e validar a integração
+## Tarefa 2: Auditar Lightswind e decidir limites seguros de integração
 
-**Descrição:** Rodar a inicialização oficial do Lightswind no app React, confirmar a versão Tailwind suportada no projeto gerado e selecionar apenas componentes que agreguem à navegação, perfil, faixa de competências ou microinterações. Revisar código, imports, telemetria, licença, dependências transitivas e movimento reduzido.
+**Descrição:** Revisar CLI, entrypoint, utilitário compartilhado e componentes candidatos do Lightswind antes de executar código externo. A inspeção da versão consultada mostrou que `init` instala a coleção toda, `src/components/lib/utils.ts` importa o pacote runtime com telemetria, e o alternador de tema avaliado depende de `document.startViewTransition` sem fallback. Para a primeira fatia, usar UI React/CSS própria e não adicionar a dependência; reconsiderar componente local apenas após auditoria do caminho de imports.
 
 **Critérios de aceitação:**
-- [ ] CLI e configuração gerada funcionam no projeto e não deixam conflito de versão/configuração do Tailwind.
-- [ ] Cada componente adotado está copiado/localizado no projeto; não há import de componente por entrypoint runtime genérico.
-- [ ] Dependências, chamadas de rede, avisos de licença e alternativa sem animação foram documentados/revisados antes de uso.
+- [x] A ação da CLI e a configuração Tailwind indicadas no README foram comparadas com o código da versão consultada; a instalação ampla foi descartada.
+- [x] O utilitário e o alternador de tema candidatos foram inspecionados; a primeira fatia não importa o pacote runtime nem adiciona dependências Lightswind.
+- [x] Riscos de telemetria, rede, licença e acessibilidade foram registrados no plano; a UI própria respeita `prefers-reduced-motion`.
 
 **Verificação:**
-- [ ] Inspecionar a árvore de imports dos componentes adicionados.
-- [ ] Executar type-check/build depois da inclusão.
-- [ ] Testar ao menos uma experiência em `prefers-reduced-motion`.
+- [x] Inspecionar o entrypoint, CLI, utilitário compartilhado e tema na versão de código consultada.
+- [x] Confirmar que o projeto não depende nem importa `lightswind`.
+- [x] Executar type-check/build sem adicionar plugin ou dependências do Lightswind.
 
 **Dependências:** Tarefa 1.
 
-**Arquivos prováveis:** Configuração Tailwind, `components/lightswind/`, utilitários compartilhados e manifestos de dependências.
+**Arquivos prováveis:** Nenhum código de biblioteca copiado nesta fatia; decisão registrada em `tasks/plan.md`.
 
-**Escopo estimado:** Médio (3–5 arquivos, podendo crescer se o CLI gerar mais arquivos; remover componentes dispensáveis).
+**Escopo estimado:** Pequeno (auditoria somente leitura).
 
 ## Tarefa 3: Construir navegação, hero, tema e resumo
 
 **Descrição:** Entregar a primeira experiência completa: cabeçalho com links por âncora, alternância de tema, hero com posicionamento e foto reais, ações para projetos/contato e resumo com indicadores verificados.
 
 **Critérios de aceitação:**
-- [ ] Os links de navegação apontam para seções existentes e a versão mobile possui alternativa acessível.
-- [ ] Hero usa apenas nome, cargos, contatos e imagem reais; nenhuma disponibilidade ou currículo é presumida.
-- [ ] Tema respeita preferência inicial do sistema, persiste escolha e possui foco/estado acessível.
+- [x] Os links de navegação apontam para seções existentes e a versão mobile possui alternativa acessível.
+- [x] Hero usa apenas nome, cargos, contatos e imagem reais; nenhuma disponibilidade ou currículo é presumida.
+- [x] Tema respeita preferência inicial do sistema, persiste escolha e possui foco/estado acessível.
 
 **Verificação:**
 - [ ] Testar navegação e alternância de tema com teclado.
-- [ ] Conferir ações e links no navegador.
+- [x] Conferir a navegação, hierarquia visual, foto e destinos exibidos no navegador local.
 - [ ] Verificar hero em 320 px, 768 px e desktop.
 
 **Dependências:** Tarefas 1 e 2.
@@ -140,13 +140,13 @@
 
 ## Tarefa 8: Validar acessibilidade, responsividade, SEO e publicação
 
-**Descrição:** Fechar o acabamento técnico e visual em breakpoints definidos, verificando semântica, contraste, navegação, estados, preferência de movimento, metadados e publicação real em GitHub Pages. Neste estágio, mover a publicação para `dist/` no workflow correto do GitHub Actions.
+**Descrição:** Fechar o acabamento técnico e visual em breakpoints definidos, verificando semântica, contraste, navegação, estados, preferência de movimento, metadados e publicação real em GitHub Pages. Neste estágio, confirmar a origem atual, criar o workflow em `.github/workflows/` e configurar Pages para publicar `dist/` quando necessário.
 
 **Critérios de aceitação:**
 - [ ] Layout não transborda e mantém hierarquia em 320, 768, 1024 e 1440 px.
 - [ ] Links, controles e conteúdo principal são utilizáveis por teclado; animações respeitam `prefers-reduced-motion`.
 - [ ] Metadados, canonical, Open Graph e URLs de assets refletem o endereço de publicação atual.
-- [ ] Workflow instala dependências, executa testes/type-check/build e publica `dist/` sob `/Portfolio/`.
+- [ ] Workflow real instala dependências, executa testes/type-check/build e publica `dist/` sob `/Portfolio/`; a origem de Pages foi conferida.
 - [ ] Build/testes passam e o artefato publicado carrega sob `/Portfolio/`.
 
 **Verificação:**
@@ -156,13 +156,13 @@
 
 **Dependências:** Tarefas 1–7.
 
-**Arquivos prováveis:** `index.html`, workflow `.github/workflows/deploy.yml`, componentes e estilos responsivos, testes.
+**Arquivos prováveis:** `app/index.html`, workflow `.github/workflows/deploy.yml`, componentes e estilos responsivos, testes.
 
 **Escopo estimado:** Médio (3–5 arquivos; dividir achados adicionais em correções específicas).
 
 ## Checkpoint: Após tarefas 1–2
 - [ ] Base Vite publica corretamente no subdiretório do GitHub Pages.
-- [ ] Integração Lightswind foi limitada, revisada e compila.
+- [x] A decisão de não adotar dependências Lightswind com telemetria implícita foi revisada e documentada.
 - [ ] Revisar a direção visual antes de migrar o restante das seções.
 
 ## Checkpoint: Após tarefas 3–5

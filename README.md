@@ -1,51 +1,45 @@
-# Portfólio Profissional - Alessander Dutra
+# Portfólio — Alessander Dutra
 
-![HTML5](https://img.shields.io/badge/HTML5-E34C26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Font Awesome](https://img.shields.io/badge/Font_Awesome-228AE6?style=flat-square&logo=font-awesome&logoColor=white)
-![Formspree](https://img.shields.io/badge/Formspree-0A66C2?style=flat-square&logo=mail.ru&logoColor=white)
-![License MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
+Portfólio profissional de Alessander Dutra, com foco em gestão de produtos digitais, inteligência artificial generativa e estratégia.
 
-Portfólio online desenvolvido com HTML, Tailwind CSS e Font Awesome.
+Site publicado: [alessander-dutra.github.io/Portfolio](https://alessander-dutra.github.io/Portfolio)
 
-🎯 **Product Manager | IA Generativa | Estratégia de Produtos Digitais**
+## Tecnologias
 
----
+- React 19
+- TypeScript
+- Vite
+- CSS responsivo
+- Vitest e Testing Library
 
-## 🌐 Visualizar Online
+## Executar localmente
 
-👉 [https://alessander-dutra.github.io/portfolio](https://alessander-dutra.github.io/Portfolio)
+Requer Node.js 20.19+ ou 22.12+.
 
-> (Substitua `alessander-dutra` pelo seu nome de usuário do GitHub se você for clonar este repositório)
+```bash
+npm install
+npm run dev
+```
 
----
+O servidor local usa a base `/Portfolio/`, a mesma do endereço de GitHub Pages.
 
-## 🛠️ Tecnologias
+## Verificar e gerar build
 
-- HTML5
-- Tailwind CSS (CDN)
-- Font Awesome
-- Google Fonts
+```bash
+npm test
+npm run build
+```
 
----
+O build de produção é gerado em `dist/`. A publicação atual permanece na raiz estática enquanto a migração para React é concluída; o workflow de Pages será atualizado no ponto de validação final descrito no [plano de modernização](./tasks/plan.md).
 
-## 📁 Estrutura
+## Estrutura
 
-portfolio-alessander/
-├── index.html
-├── css/style.css
-├── assets/img/profile.jpeg
-└── README.md
+- `app/` — aplicação React/Vite e seus metadados.
+- `app/src/components/` — componentes das seções do portfólio.
+- `assets/img/` — imagens existentes do portfólio.
+- `css/`, `js/`, `index.html` — versão estática atualmente publicada durante a migração.
+- `tasks/` — plano e checklist de implementação.
 
----
+## Lightswind UI
 
-## ⚙️ Nota sobre Tailwind
-
-Este projeto usa o Tailwind CSS via CDN para facilitar o desenvolvimento rápido. A configuração do Tailwind no `index.html` define `darkMode: 'class'` para que o botão de tema funcione corretamente.
-
-Dica de desenvolvimento local (opcional): para reduzir o tamanho em produção e usar classes customizadas, configure o Tailwind com PostCSS e gere um CSS compilado em vez de usar a CDN.
-
----
+O repositório Lightswind foi analisado como fonte de componentes, mas a aplicação inicial não importa o pacote runtime nem executa a CLI `init`: a versão inspecionada inclui caminhos de telemetria e instalação ampla. A integração poderá ser reconsiderada por componente após revisão de código, dependências e chamadas de rede.

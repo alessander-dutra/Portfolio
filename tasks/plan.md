@@ -2,7 +2,7 @@
 
 ## Visão geral
 
-Modernizar o portfólio de Alessander Dutra para uma experiência de página única inspirada na organização e nas interações do site de referência, preservando identidade, trajetória e conteúdo verificáveis do projeto atual. A implementação será migrada de HTML/CSS/JavaScript estático para React, Vite e TypeScript, com uso seletivo de componentes Lightswind locais e publicação compatível com GitHub Pages.
+Modernizar o portfólio de Alessander Dutra para uma experiência de página única inspirada na organização e nas interações do site de referência, preservando identidade, trajetória e conteúdo verificáveis do projeto atual. A implementação será migrada de HTML/CSS/JavaScript estático para React, Vite e TypeScript. A biblioteca Lightswind será avaliada por componente; o site não adotará automaticamente dependências ou imports que tragam telemetria ou comportamento de rede inesperado. A publicação continuará compatível com GitHub Pages.
 
 ## Diagnóstico e referências
 
@@ -17,8 +17,8 @@ O conteúdo publicado também tem sinais de template que não devem ser reproduz
 - O conteúdo está concentrado em `index.html`, com CSS em `css/style.css` e JavaScript em `js/main.js`; não há `package.json`, aplicação React, testes ou build de frontend configurado.
 - Já existem resumo, conquistas, competências, experiência, projetos, formação, certificações, publicações, recomendações, redes sociais e informações de contato. O conteúdo de origem deve ser reaproveitado e revisado, não substituído pelo conteúdo fictício do exemplo.
 - O documento repete a seção “Publicações”, apresenta grande volume de certificações/competências e não contém um formulário de contato funcional nem um arquivo de currículo PDF no repositório.
-- `deploy.yml` publica atualmente a raiz do repositório sem build. A aplicação Vite precisará gerar `dist/` e o workflow deverá publicar essa pasta; como o endereço de GitHub Pages usa o caminho `/Portfolio/`, o `base` do Vite e os caminhos dos assets precisarão respeitar esse subdiretório.
-- Para não substituir a página servida por uma versão incompleta durante a migração, o workflow de publicação será alterado somente no último ponto de controle. Até lá, Vite será validado em paralelo, sem trocar a publicação atual.
+- `deploy.yml` está na raiz, fora de `.github/workflows/`, portanto não será tratado como workflow ativo do GitHub Actions. A origem atual do Pages deve ser confirmada antes da troca. Ao fim da migração, será criado/configurado um workflow real para compilar e publicar `dist/`; como o endereço usa `/Portfolio/`, o `base` do Vite e os caminhos dos assets precisam respeitar esse subdiretório.
+- Para não substituir a página servida por uma versão incompleta durante a migração, o workflow real e a troca da origem de publicação do Pages serão configurados somente no último ponto de controle. Até lá, Vite será validado em paralelo, sem trocar os arquivos publicados.
 
 ### Lightswind UI Library
 
@@ -26,8 +26,11 @@ O conteúdo publicado também tem sinais de template que não devem ser reproduz
 - Candidatos úteis para avaliar: navegação/alternância de tema, cartões, contador, faixa de tecnologias e efeitos de entrada/revelação. A escolha final deverá privilegiar leitura, acessibilidade e performance, evitando animações decorativas em excesso.
 - O README descreve uma abordagem de componentes-fonte editáveis e dependências específicas por componente; portanto, não importar componentes de um pacote runtime genérico nem adicionar animação/3D sem necessidade.
 - Foi identificado em `src/index.ts` do repositório Lightswind um envio de telemetria com o hostname ao importar o entrypoint do pacote, limitado por armazenamento local; `trackComponent` também tem lógica de envio. Antes de adotar qualquer componente ou dependência transitiva, revisar o código realmente gerado e o caminho de imports. Não importar o entrypoint do pacote no site publicado sem uma decisão informada de privacidade.
+- Na versão do código inspecionada, `src/components/lib/utils.ts` também importa `"lightswind"`; portanto, componentes que usam esse utilitário podem acabar incluindo a telemetria mesmo quando são copiados localmente.
+- O entrypoint `init` da CLI inspecionada chama `installAll`, incompatível com a exigência de inclusão seletiva. O componente `toggle-theme` avaliado chama `document.startViewTransition` sem fallback e ainda requer `lucide-react`; não será usado como controle primário de tema.
 - A inicialização automática do Tailwind precisa ser inspecionada no projeto gerado e validada com a versão escolhida; não assumir que um exemplo de configuração para Tailwind v3 serve sem ajustes para v4.
 - MCP é opcional para o site e não faz parte do escopo inicial. A licença MIT e os avisos de atribuição aplicáveis aos arquivos selecionados deverão ser preservados.
+- Decisão da primeira fatia: não executar uma CLI cuja ação `init` instala a coleção completa nem adicionar o pacote runtime. A navegação, o tema e os cartões iniciais serão componentes React/CSS próprios, sem dependências Lightswind, para evitar telemetria, incompatibilidade de configuração e peso sem benefício funcional demonstrado. Componentes Lightswind isolados só serão reconsiderados quando um componente real justificar a integração e seus imports puderem ser revisados.
 
 ## Contrato de design proposto
 
@@ -67,10 +70,10 @@ O desenho é uma direção de conteúdo e hierarquia, não uma reprodução pixe
 ## Decisões de arquitetura
 
 - Migrar para React + Vite + TypeScript, preservando a implantação estática em GitHub Pages.
-- Usar componentes locais Lightswind apenas onde resolverem uma necessidade visual/funcional real; componentes genéricos e seções editoriais podem ser implementados com componentes React próprios.
+- Reavaliar componentes locais Lightswind por necessidade real; os componentes primários desta migração usam React/CSS próprios, sem importar o pacote runtime, enquanto os riscos de telemetria e instalação não seletiva permanecerem.
 - Centralizar informações pessoais e listas repetidas em dados tipados, facilitando atualização e revisão factual.
 - Separar componentes por seção para manter escopo e testes manejáveis.
-- Configurar build com `base` alinhado ao caminho `/Portfolio/`; somente na etapa final trocar a publicação do Pages para o artefato completo `dist/`.
+- Configurar build com `base` alinhado ao caminho `/Portfolio/`; somente na etapa final criar o workflow real em `.github/workflows/` e configurar Pages para publicar o artefato completo `dist/`.
 - Validar licença, conteúdo gerado, dependências e qualquer comportamento de rede dos imports selecionados antes de publicar.
 
 ## Plano de tarefas
@@ -78,12 +81,12 @@ O desenho é uma direção de conteúdo e hierarquia, não uma reprodução pixe
 O checklist detalhado, com critérios de aceitação, verificação, dependências e escopo, está em [`todo.md`](./todo.md).
 
 ### Fase 1 — Fundação
-- [ ] Tarefa 1: Preparar aplicação React/Vite/TypeScript e build compatível com o caminho do GitHub Pages.
-- [ ] Tarefa 2: Inicializar Lightswind de forma seletiva e validar integração, dependências e privacidade.
+- [x] Tarefa 1: Preparar aplicação React/Vite/TypeScript e build compatível com o caminho do GitHub Pages.
+- [x] Tarefa 2: Auditar Lightswind e decidir limites seguros de integração.
 
 ### Ponto de controle — Fundação
-- [ ] Aplicação inicia localmente, build gera `dist/` e URL base de Pages é testada sem substituir a publicação em uso.
-- [ ] Componentes selecionados e seus imports/dependências foram inspecionados.
+- [x] Aplicação inicia localmente, build gera `dist/` e URL base de Pages é testada sem substituir a publicação em uso.
+- [x] A decisão de adoção, imports, dependências e chamadas de rede foi documentada; não há dependência inesperada.
 
 ### Fase 2 — Apresentação e conteúdo central
 - [ ] Tarefa 3: Construir navegação, hero, tema e resumo com indicadores reais.
@@ -108,9 +111,9 @@ O checklist detalhado, com critérios de aceitação, verificação, dependênci
 
 | Risco | Impacto | Mitigação |
 |---|---|---|
-| Migração quebra o endereço existente no GitHub Pages | Alto | Configurar e testar o `base` `/Portfolio/`; atualizar o workflow para publicar `dist/`. |
+| Migração quebra o endereço existente no GitHub Pages | Alto | Configurar e testar o `base` `/Portfolio/`; confirmar a origem atual de publicação e ativar o workflow real apenas após validar o build completo de `dist/`. |
 | Conteúdo do template de referência é confundido com biografia real | Alto | Manter somente informações existentes e exigir revisão do titular antes da publicação. |
-| Código/dependência Lightswind inclui telemetria ou efeitos excessivos | Médio | Selecionar por CLI, inspecionar imports e código gerado, evitar o entrypoint runtime e remover componentes sem valor claro. |
+| Código/dependência Lightswind inclui telemetria ou efeitos excessivos | Médio | Evitar `init` que instala a coleção e o entrypoint runtime; usar React/CSS próprio nesta fatia e reavaliar componentes locais individualmente. |
 | Tailwind v3/v4 e plugin CLI geram configurações incompatíveis | Médio | Conferir a configuração real criada pelo CLI; manter uma única versão compatível e testar build desde a fase de fundação. |
 | Currículo PDF ou backend do formulário não estão disponíveis | Baixo | Manter contato direto e não exibir ação de currículo/formulário sem destino funcional. |
 | Página longa fica difícil de escanear | Médio | Priorizar projetos/impacto, agrupar competências/certificações e reduzir repetições. |
