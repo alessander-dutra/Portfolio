@@ -2,21 +2,21 @@
 
 ## Tarefa 1: Preparar aplicação React/Vite/TypeScript e build de Pages
 
-**Descrição:** Criar a base React, Vite e TypeScript preservando assets úteis e metadados essenciais. Configurar o `base` para o subdiretório `/Portfolio/` e alterar o workflow existente para compilar a aplicação e enviar `dist/` ao GitHub Pages.
+**Descrição:** Criar a base React, Vite e TypeScript preservando metadados essenciais. Configurar o `base` para o subdiretório `/Portfolio/` e gerar `dist/`. Manter a página estática atual servida até a nova experiência estar completa; a troca do workflow de publicação faz parte da validação final.
 
 **Critérios de aceitação:**
-- [ ] A aplicação React é servida localmente pelo Vite e produz um build estático.
-- [ ] O caminho público `/Portfolio/` carrega scripts, estilos e imagens sem 404.
-- [ ] O workflow do GitHub Pages instala dependências, executa build e publica somente o artefato `dist/`.
+- [x] A aplicação React é servida localmente pelo Vite e produz um build estático.
+- [x] O caminho público `/Portfolio/` carrega scripts e estilos sem 404.
+- [x] O build inclui os arquivos esperados sob `/Portfolio/` sem alterar a publicação ativa durante a migração.
 
 **Verificação:**
-- [ ] Executar o comando de build do projeto.
-- [ ] Validar localmente a página inicial e os caminhos dos assets com a mesma base usada em Pages.
-- [ ] Confirmar que o workflow YAML aponta para a saída `dist/`.
+- [x] Executar `npm run build`.
+- [x] Validar no navegador a página inicial em `http://127.0.0.1:5173/Portfolio/`.
+- [x] Confirmar que a saída `dist/` e os caminhos base estão corretos; a troca do workflow será verificada na tarefa 8.
 
 **Dependências:** Nenhuma.
 
-**Arquivos prováveis:** `package.json`, configuração Vite/TypeScript, `index.html`, workflow em `.github/workflows/` ou `deploy.yml`.
+**Arquivos prováveis:** `package.json`, configuração Vite/TypeScript e `app/index.html`.
 
 **Escopo estimado:** Médio (3–5 arquivos).
 
@@ -140,12 +140,13 @@
 
 ## Tarefa 8: Validar acessibilidade, responsividade, SEO e publicação
 
-**Descrição:** Fechar o acabamento técnico e visual em breakpoints definidos, verificando semântica, contraste, navegação, estados, preferência de movimento, metadados e publicação real em GitHub Pages.
+**Descrição:** Fechar o acabamento técnico e visual em breakpoints definidos, verificando semântica, contraste, navegação, estados, preferência de movimento, metadados e publicação real em GitHub Pages. Neste estágio, mover a publicação para `dist/` no workflow correto do GitHub Actions.
 
 **Critérios de aceitação:**
 - [ ] Layout não transborda e mantém hierarquia em 320, 768, 1024 e 1440 px.
 - [ ] Links, controles e conteúdo principal são utilizáveis por teclado; animações respeitam `prefers-reduced-motion`.
 - [ ] Metadados, canonical, Open Graph e URLs de assets refletem o endereço de publicação atual.
+- [ ] Workflow instala dependências, executa testes/type-check/build e publica `dist/` sob `/Portfolio/`.
 - [ ] Build/testes passam e o artefato publicado carrega sob `/Portfolio/`.
 
 **Verificação:**
@@ -155,7 +156,7 @@
 
 **Dependências:** Tarefas 1–7.
 
-**Arquivos prováveis:** `index.html`, workflow de Pages, componentes e estilos responsivos, testes.
+**Arquivos prováveis:** `index.html`, workflow `.github/workflows/deploy.yml`, componentes e estilos responsivos, testes.
 
 **Escopo estimado:** Médio (3–5 arquivos; dividir achados adicionais em correções específicas).
 

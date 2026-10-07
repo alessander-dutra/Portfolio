@@ -18,6 +18,7 @@ O conteúdo publicado também tem sinais de template que não devem ser reproduz
 - Já existem resumo, conquistas, competências, experiência, projetos, formação, certificações, publicações, recomendações, redes sociais e informações de contato. O conteúdo de origem deve ser reaproveitado e revisado, não substituído pelo conteúdo fictício do exemplo.
 - O documento repete a seção “Publicações”, apresenta grande volume de certificações/competências e não contém um formulário de contato funcional nem um arquivo de currículo PDF no repositório.
 - `deploy.yml` publica atualmente a raiz do repositório sem build. A aplicação Vite precisará gerar `dist/` e o workflow deverá publicar essa pasta; como o endereço de GitHub Pages usa o caminho `/Portfolio/`, o `base` do Vite e os caminhos dos assets precisarão respeitar esse subdiretório.
+- Para não substituir a página servida por uma versão incompleta durante a migração, o workflow de publicação será alterado somente no último ponto de controle. Até lá, Vite será validado em paralelo, sem trocar a publicação atual.
 
 ### Lightswind UI Library
 
@@ -69,7 +70,7 @@ O desenho é uma direção de conteúdo e hierarquia, não uma reprodução pixe
 - Usar componentes locais Lightswind apenas onde resolverem uma necessidade visual/funcional real; componentes genéricos e seções editoriais podem ser implementados com componentes React próprios.
 - Centralizar informações pessoais e listas repetidas em dados tipados, facilitando atualização e revisão factual.
 - Separar componentes por seção para manter escopo e testes manejáveis.
-- Configurar build com `base` alinhado ao caminho `/Portfolio/` e upload de `dist/` no workflow de Pages.
+- Configurar build com `base` alinhado ao caminho `/Portfolio/`; somente na etapa final trocar a publicação do Pages para o artefato completo `dist/`.
 - Validar licença, conteúdo gerado, dependências e qualquer comportamento de rede dos imports selecionados antes de publicar.
 
 ## Plano de tarefas
@@ -77,11 +78,11 @@ O desenho é uma direção de conteúdo e hierarquia, não uma reprodução pixe
 O checklist detalhado, com critérios de aceitação, verificação, dependências e escopo, está em [`todo.md`](./todo.md).
 
 ### Fase 1 — Fundação
-- [ ] Tarefa 1: Preparar aplicação React/Vite/TypeScript e build para GitHub Pages.
+- [ ] Tarefa 1: Preparar aplicação React/Vite/TypeScript e build compatível com o caminho do GitHub Pages.
 - [ ] Tarefa 2: Inicializar Lightswind de forma seletiva e validar integração, dependências e privacidade.
 
 ### Ponto de controle — Fundação
-- [ ] Aplicação inicia localmente, build gera `dist/` e URL base de Pages é testada.
+- [ ] Aplicação inicia localmente, build gera `dist/` e URL base de Pages é testada sem substituir a publicação em uso.
 - [ ] Componentes selecionados e seus imports/dependências foram inspecionados.
 
 ### Fase 2 — Apresentação e conteúdo central
@@ -100,7 +101,7 @@ O checklist detalhado, com critérios de aceitação, verificação, dependênci
 
 ### Ponto de controle — Entrega
 - [ ] Build e testes passam; fluxo de navegação e contatos foi verificado.
-- [ ] O artefato de GitHub Pages contém os arquivos de `dist/` e funciona sob `/Portfolio/`.
+- [ ] O workflow de Pages publica os arquivos completos de `dist/` e funciona sob `/Portfolio/`.
 - [ ] Versões desktop e mobile respeitam contraste, teclado e preferência de movimento reduzido.
 
 ## Riscos e mitigação

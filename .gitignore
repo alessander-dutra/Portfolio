@@ -2,6 +2,10 @@
 .DS_Store
 Thumbs.db
 
+# Dependências e build
+node_modules/
+dist/
+
 # Navegadores
 *.swp
 *~
