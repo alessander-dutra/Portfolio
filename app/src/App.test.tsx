@@ -505,4 +505,39 @@ describe("portfolio application shell", () => {
     expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
     expect(screen.getByText("Vite")).toBeInTheDocument();
   });
+
+  it("features the two recent projects from the supplied profile capture", () => {
+    render(<App />);
+
+    const projects = screen.getByRole("region", { name: "Projetos" });
+    const titles = within(projects)
+      .getAllByRole("heading", { level: 3 })
+      .map((heading) => heading.textContent?.trim());
+
+    expect(titles).toEqual([
+      "The Prompt Engineering Playbook for Product Ecosystems",
+      "Universo do Machine Learning",
+      "HungryGo",
+      "Menu Digital Pro",
+    ]);
+    expect(projects).toHaveTextContent("mai. de 2026 – o momento");
+    expect(projects).toHaveTextContent("Chain-of-Thought, Few-Shot, Zero-Shot e Role Prompting");
+    expect(projects).toHaveTextContent("Associados à UNIASSELVI");
+    expect(
+      within(projects).getByRole("link", {
+        name: /Acessar o notebook The Prompt Engineering Playbook/,
+      }),
+    ).toHaveAttribute(
+      "href",
+      "https://notebooklm.google.com/notebook/c4b1bee7-16e7-4f4b-9964-80eeb9ef89ef",
+    );
+    expect(
+      within(projects).getByRole("link", {
+        name: /Ler publicação sobre Machine Learning/,
+      }),
+    ).toHaveAttribute(
+      "href",
+      "https://notebooklm.google.com/notebook/afc377f1-2806-440f-9183-7a4a359badfc",
+    );
+  });
 });

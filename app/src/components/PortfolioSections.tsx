@@ -1,4 +1,5 @@
 import type { FormEvent } from "react";
+import { RecentProjects } from "./RecentProjects";
 
 export function AboutSection() {
   return (
@@ -40,15 +41,21 @@ export function AboutSection() {
 
 export function ProjectsSection() {
   return (
-    <section id="projetos" className="content-section">
+    <section
+      id="projetos"
+      className="content-section"
+      aria-labelledby="projects-title"
+    >
       <div className="section-heading">
-        <p className="section-kicker">Trabalho selecionado</p>
-        <h2>Projetos</h2>
+        <p className="section-kicker">Projetos e publicações técnicas</p>
+        <h2 id="projects-title">Projetos</h2>
         <p>
-          Produtos digitais que conectam experiência do usuário e necessidades
-          operacionais.
+          Projetos recentes em inteligência artificial e conteúdos técnicos,
+          além de produtos digitais desenvolvidos anteriormente.
         </p>
       </div>
+      <RecentProjects />
+      <p className="project-group-label">Produtos digitais</p>
       <div className="project-grid">
         <article className="project-card">
           <p className="project-category">Delivery · Plataforma digital</p>

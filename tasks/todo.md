@@ -83,16 +83,17 @@
 
 ## Tarefa 5: Publicar projetos e trajetória profissional
 
-**Descrição:** Reapresentar HungryGo e Menu Digital Pro como estudos de caso/projetos e a experiência real em uma linha do tempo responsiva, usando destinos existentes e sem inventar capturas, clientes ou resultados.
+**Descrição:** Apresentar os projetos recentes de engenharia de prompts e Machine Learning junto aos estudos de caso HungryGo e Menu Digital Pro, além da experiência profissional, usando os conteúdos e destinos fornecidos.
 
 **Critérios de aceitação:**
+- [x] Os dois projetos recentes do perfil aparecem antes dos projetos anteriores, com descrições e destinos NotebookLM já fornecidos/verificados.
 - [x] Os dois projetos têm descrição, tecnologias e links existentes e válidos.
 - [x] Experiências aparecem em ordem cronológica coerente e conservam cargos/datas/realizações da fonte.
 - [x] Cartões e linha do tempo funcionam por teclado, toque e redução de movimento.
 
 **Verificação:**
 - [x] Conferir destinos externos, `target` e proteção `rel="noreferrer"` nos links dos projetos.
-- [x] Conferir as seções em desktop e celular, testar preferência de movimento reduzido e executar testes/build.
+- [x] Conferir projetos em celular sem transbordamento horizontal e executar suíte de testes/build.
 
 **Dependências:** Tarefa 4.
 

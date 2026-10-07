@@ -95,7 +95,8 @@ O checklist detalhado, com critérios de aceitação, verificação, dependênci
 
 ### Ponto de controle — Conteúdo central
 - [x] Principais âncoras, ações e seções funcionam em desktop e celular; testes automatizados, navegação por teclado e larguras de 320 a 1440 px foram verificados.
-- [x] Conteúdo de competências, projetos e trajetória foi conferido com a página estática original; links provisórios não foram introduzidos.
+- [x] Conteúdo de competências, projetos e trajetória foi conferido com as fontes fornecidas; links provisórios não foram introduzidos.
+- [x] Dois projetos recentes do perfil foram adicionados antes dos projetos anteriores, com destinos NotebookLM fornecidos ou já verificados.
 
 ### Fase 3 — Complementos e acabamento
 - [x] Tarefa 6: Integrar formação, certificações e publicações sem duplicação. (48 cursos/credenciais em lista expansível; duas publicações com destinos existentes.)
