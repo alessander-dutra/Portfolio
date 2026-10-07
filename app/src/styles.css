@@ -475,15 +475,125 @@ a:focus-visible {
   line-height: 1.65;
 }
 
+.project-tags,
+.competency-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tags li,
+.competency-tags li {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 .text-link {
   margin-top: auto;
   color: var(--accent-strong);
+}
+
+.competency-grid {
+  display: grid;
+  margin-top: 2.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.competency-group {
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+}
+
+.competency-group h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+}
+
+.competency-tags {
+  margin-top: 1rem;
 }
 
 .journey-section {
   background: var(--surface-muted);
   box-shadow: 0 0 0 100vmax var(--surface-muted);
   clip-path: inset(0 -100vmax);
+}
+
+.experience-list {
+  display: grid;
+  gap: 1.25rem;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-item {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+}
+
+.experience-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experience-heading h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
+}
+
+.experience-company,
+.experience-period,
+.experience-intro {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.experience-company {
+  color: var(--accent-strong);
+  font-weight: 650;
+}
+
+.experience-period {
+  flex: 0 0 auto;
+  margin-top: 0;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.experience-intro {
+  margin-top: 1rem;
+}
+
+.experience-achievements {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 .contact-section {
@@ -580,6 +690,15 @@ a:focus-visible {
   .about-section {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .competency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-heading {
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
   .contact-section {

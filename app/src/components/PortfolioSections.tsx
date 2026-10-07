@@ -63,6 +63,13 @@ export function ProjectsSection() {
           >
             Ver projeto no GitHub <span aria-hidden="true">↗</span>
           </a>
+          <ul className="project-tags" aria-label="Tecnologias utilizadas">
+            {["React 18", "TypeScript", "Vite", "Tailwind CSS", "Node.js"].map(
+              (technology) => (
+                <li key={technology}>{technology}</li>
+              ),
+            )}
+          </ul>
         </article>
         <article className="project-card">
           <p className="project-category">Food service · Full-stack</p>
@@ -79,23 +86,15 @@ export function ProjectsSection() {
           >
             Ver projeto no GitHub <span aria-hidden="true">↗</span>
           </a>
+          <ul className="project-tags" aria-label="Tecnologias utilizadas">
+            {["React 18", "TypeScript", "Tailwind CSS", "Express", "PostgreSQL"].map(
+              (technology) => (
+                <li key={technology}>{technology}</li>
+              ),
+            )}
+          </ul>
         </article>
       </div>
-    </section>
-  );
-}
-
-export function JourneySection() {
-  return (
-    <section id="trajetoria" className="content-section journey-section">
-      <div className="section-heading">
-        <p className="section-kicker">Experiência</p>
-        <h2>Trajetória profissional</h2>
-      </div>
-      <p>
-        Mais de 15 anos de atuação em produtos digitais, meios de pagamento,
-        implantação de sistemas e liderança de equipes.
-      </p>
     </section>
   );
 }

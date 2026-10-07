@@ -29,7 +29,13 @@ describe("portfolio application shell", () => {
       name: "Navegação principal",
     });
 
-    for (const label of ["Sobre", "Projetos", "Trajetória", "Contato"]) {
+    for (const label of [
+      "Sobre",
+      "Competências",
+      "Projetos",
+      "Trajetória",
+      "Contato",
+    ]) {
       const link = within(navigation).getByRole("link", { name: label });
       const targetId = link.getAttribute("href")?.slice(1);
       expect(targetId).toBeTruthy();
@@ -78,5 +84,61 @@ describe("portfolio application shell", () => {
     });
     fireEvent.click(within(navigation).getByRole("link", { name: "Projetos" }));
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("shows impact metrics with the context documented in the original portfolio", () => {
+    render(<App />);
+
+    expect(screen.getByText("Aumento na satisfação com novos produtos")).toBeInTheDocument();
+    expect(screen.getByText("Redução no tempo de entrega com low-code")).toBeInTheDocument();
+    expect(
+      screen.getByText("Lançamentos sem defeitos com QA e testes A/B"),
+    ).toBeInTheDocument();
+  });
+
+  it("groups professional competencies separately from certifications", () => {
+    render(<App />);
+
+    expect(
+      screen.getByRole("heading", { level: 2, name: "Competências" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Estratégia de produto")).toBeInTheDocument();
+    expect(screen.getByText("IA generativa")).toBeInTheDocument();
+    expect(screen.getByText("Meios de pagamento e PCI-DSS")).toBeInTheDocument();
+  });
+
+  it("shows the three real Altec roles in reverse chronological order", () => {
+    render(<App />);
+
+    const journey = document.getElementById("trajetoria");
+    expect(journey).toBeInTheDocument();
+
+    const roles = journey
+      ? [...journey.querySelectorAll("h3")].map((heading) =>
+          heading.textContent?.trim(),
+        )
+      : [];
+    expect(roles).toEqual([
+      "Product Manager",
+      "Gerente de Suporte Técnico e Implantação",
+      "Supervisor de Suporte Técnico e Operações",
+    ]);
+    expect(journey?.querySelector('time[datetime="2015-07"]')).toHaveTextContent(
+      "Jul 2015",
+    );
+    expect(journey?.querySelector('time[datetime="2025-04"]')).toHaveTextContent(
+      "Abr 2025",
+    );
+    expect(journey?.querySelector('time[datetime="2009-08"]')).toHaveTextContent(
+      "Ago 2009",
+    );
+  });
+
+  it("lists the technologies documented for each selected project", () => {
+    render(<App />);
+
+    expect(screen.getByText("Node.js")).toBeInTheDocument();
+    expect(screen.getByText("PostgreSQL")).toBeInTheDocument();
+    expect(screen.getByText("Vite")).toBeInTheDocument();
   });
 });

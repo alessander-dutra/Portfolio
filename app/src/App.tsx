@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import {
   AboutSection,
   ContactSection,
-  JourneySection,
   ProjectsSection,
   SiteFooter,
 } from "./components/PortfolioSections";
+import { CompetenciesSection } from "./components/CompetenciesSection";
 import { HeroSection } from "./components/HeroSection";
+import { JourneySection } from "./components/JourneySection";
 import { SiteHeader } from "./components/SiteHeader";
 
 function getInitialTheme() {
@@ -39,6 +40,7 @@ export default function App() {
       <main id="conteudo" className="page-content">
         <HeroSection />
         <AboutSection />
+        <CompetenciesSection />
         <ProjectsSection />
         <JourneySection />
         <ContactSection />

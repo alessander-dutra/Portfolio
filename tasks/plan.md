@@ -89,13 +89,13 @@ O checklist detalhado, com critérios de aceitação, verificação, dependênci
 - [x] A decisão de adoção, imports, dependências e chamadas de rede foi documentada; não há dependência inesperada.
 
 ### Fase 2 — Apresentação e conteúdo central
-- [ ] Tarefa 3: Construir navegação, hero, tema e resumo com indicadores reais.
-- [ ] Tarefa 4: Organizar atuação, competências e conquistas.
-- [ ] Tarefa 5: Publicar projetos e trajetória profissional com conteúdo atual.
+- [x] Tarefa 3: Construir navegação, hero, tema e resumo com indicadores reais.
+- [x] Tarefa 4: Organizar atuação, competências e conquistas.
+- [x] Tarefa 5: Publicar projetos e trajetória profissional com conteúdo atual.
 
 ### Ponto de controle — Conteúdo central
-- [ ] Principais âncoras, ações e seções funcionam em desktop e celular.
-- [ ] Conteúdo pessoal foi conferido e nenhum link provisório foi publicado.
+- [x] Principais âncoras, ações e seções funcionam em desktop e celular; testes automatizados, navegação por teclado e larguras de 320 a 1440 px foram verificados.
+- [x] Conteúdo de competências, projetos e trajetória foi conferido com a página estática original; links provisórios não foram introduzidos.
 
 ### Fase 3 — Complementos e acabamento
 - [ ] Tarefa 6: Integrar formação, certificações e publicações sem duplicação.

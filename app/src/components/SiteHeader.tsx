@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const navigationLinks = [
   { href: "#sobre", label: "Sobre" },
+  { href: "#competencias", label: "Competências" },
   { href: "#projetos", label: "Projetos" },
   { href: "#trajetoria", label: "Trajetória" },
   { href: "#contato", label: "Contato" },

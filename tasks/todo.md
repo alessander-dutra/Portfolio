@@ -50,9 +50,9 @@
 - [x] Tema respeita preferência inicial do sistema, persiste escolha e possui foco/estado acessível.
 
 **Verificação:**
-- [ ] Testar navegação e alternância de tema com teclado.
+- [x] Testar navegação e alternância de tema com teclado.
 - [x] Conferir a navegação, hierarquia visual, foto e destinos exibidos no navegador local.
-- [ ] Verificar hero em 320 px, 768 px e desktop.
+- [x] Verificar responsividade e ausência de rolagem horizontal em 320 px, 390 px, 768 px, 1024 px e 1440 px.
 
 **Dependências:** Tarefas 1 e 2.
 
@@ -65,13 +65,13 @@
 **Descrição:** Reestruturar resumo, competências e resultados profissionais para leitura escaneável, transformando a lista atual em grupos coerentes com a atuação em produto, IA, estratégia, dados e pagamentos.
 
 **Critérios de aceitação:**
-- [ ] Conquistas +30%, 25% e 98% são apresentadas com seus contextos, sem animar ou sugerir precisão adicional.
-- [ ] Competências são agrupadas por tema e não duplicam certificações.
-- [ ] Seções permanecem legíveis sem animação e não dependem apenas da cor para comunicar informação.
+- [x] Conquistas +30%, 25% e 98% são apresentadas com seus contextos, sem animar ou sugerir precisão adicional.
+- [x] Competências são agrupadas por tema e não duplicam certificações.
+- [x] Seções permanecem legíveis sem animação e não dependem apenas da cor para comunicar informação.
 
 **Verificação:**
-- [ ] Conferir os textos comparando-os com o conteúdo atual do projeto.
-- [ ] Executar type-check/build e testar o fluxo de teclado.
+- [x] Conferir os textos comparando-os com o conteúdo atual do projeto.
+- [x] Executar type-check/build, testes e testar o fluxo de teclado.
 
 **Dependências:** Tarefa 3.
 
@@ -84,13 +84,13 @@
 **Descrição:** Reapresentar HungryGo e Menu Digital Pro como estudos de caso/projetos e a experiência real em uma linha do tempo responsiva, usando destinos existentes e sem inventar capturas, clientes ou resultados.
 
 **Critérios de aceitação:**
-- [ ] Os dois projetos têm descrição, tecnologias e links existentes e válidos.
-- [ ] Experiências aparecem em ordem cronológica coerente e conservam cargos/datas/realizações da fonte.
-- [ ] Cartões e linha do tempo funcionam por teclado, toque e redução de movimento.
+- [x] Os dois projetos têm descrição, tecnologias e links existentes e válidos.
+- [x] Experiências aparecem em ordem cronológica coerente e conservam cargos/datas/realizações da fonte.
+- [x] Cartões e linha do tempo funcionam por teclado, toque e redução de movimento.
 
 **Verificação:**
-- [ ] Abrir links externos e conferir `target`/proteções quando aplicável.
-- [ ] Conferir leitura em desktop e celular e executar build.
+- [x] Conferir destinos externos, `target` e proteção `rel="noreferrer"` nos links dos projetos.
+- [x] Conferir as seções em desktop e celular, testar preferência de movimento reduzido e executar testes/build.
 
 **Dependências:** Tarefa 4.
 
