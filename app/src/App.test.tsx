@@ -213,20 +213,20 @@ describe("portfolio application shell", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows only the current verified Accenture professional experience", () => {
+  it("shows the current Accenture role and all previous Altec experiences", () => {
     render(<App />);
 
     const journey = screen.getByRole("region", {
-      name: "Experiência profissional atual",
+      name: "Trajetória profissional",
     });
 
-    expect(within(journey).getAllByRole("article")).toHaveLength(1);
-    expect(
-      within(journey).getByRole("heading", {
-        level: 3,
-        name: "Software Prod & Plat Eng Specialist",
-      }),
-    ).toBeInTheDocument();
+    const roles = within(journey).getAllByRole("heading", { level: 3 });
+    expect(roles.map((role) => role.textContent?.trim())).toEqual([
+      "Software Prod & Plat Eng Specialist",
+      "Product Manager",
+      "Gerente de Suporte Técnico e Implantação",
+      "Supervisor de Suporte Técnico e Operações",
+    ]);
     expect(journey).toHaveTextContent("Accenture Brasil");
     expect(journey).toHaveTextContent("Tempo integral");
     expect(journey).toHaveTextContent("Avenida das Nações Unidas, 14401");
@@ -234,26 +234,26 @@ describe("portfolio application shell", () => {
     expect(journey.querySelector('time[datetime="2026-06"]')).toHaveTextContent(
       "Jun 2026",
     );
-    expect(journey.querySelector("time:not([datetime])")).toHaveTextContent(
-      "o momento",
-    );
-    expect(journey).not.toHaveTextContent("Altec Sistemas e Tecnologia");
-    expect(journey).not.toHaveTextContent("Jul 2015");
+    expect(within(journey).getByText("o momento · 5 meses")).toBeInTheDocument();
+    expect(journey).toHaveTextContent("Altec Sistemas e Tecnologia");
+    expect(journey).toHaveTextContent("Jul 2015");
+    expect(journey).toHaveTextContent("Ago 2009");
   });
 
-  it("renders the current experience in an accessible timeline", () => {
+  it("renders all four experiences in an accessible timeline", () => {
     render(<App />);
 
     const timeline = screen.getByRole("region", {
-      name: "Experiência profissional atual",
+      name: "Trajetória profissional",
     });
     const roles = within(timeline).getAllByRole("article");
 
-    expect(roles).toHaveLength(1);
+    expect(roles).toHaveLength(4);
     expect(roles[0].parentElement).toHaveClass("experience-item--right");
+    expect(roles[1].parentElement).toHaveClass("experience-item--left");
     expect(
       within(timeline).getByRole("list", {
-        name: "Experiência profissional",
+        name: "Experiências profissionais",
       }),
     ).toBeInTheDocument();
   });
