@@ -12,10 +12,10 @@ const navigationLinks = [
 const quickLinks = [
   { href: "#inicio", label: "Início", icon: "M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z" },
   { href: "#sobre", label: "Sobre", icon: "M20 21a8 8 0 0 0-16 0m8-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" },
-  { href: "#competencias", label: "Competências", icon: "M4 7h16M4 12h16M4 17h16M8 4v16m8-16v16" },
-  { href: "#projetos", label: "Projetos", icon: "M3 7h18v14H3zM8 7V4h8v3m-5 0v4h4" },
-  { href: "#trajetoria", label: "Carreira", icon: "M3 7h18v14H3zM8 7V4h8v3m-5 0v4h4" },
-  { href: "#contato", label: "Contato", icon: "M3 5h18v14H3zM3 7l9 6 9-6" },
+  { href: "#competencias", label: "Competências", icon: "M4 20V11m5 9V5m5 15v-7m5 7V8M2 20h20" },
+  { href: "#projetos", label: "Projetos", icon: "M3 7h18v14H3zM8 7V4h8v3" },
+  { href: "#trajetoria", label: "Carreira", icon: "M3 8h18v13H3zM8 8V5h8v3M3 12h18m-11 0v3h4v-3" },
+  { href: "#contato", label: "Contato", icon: "m3 4 18 8-18 8 4-8-4-8Zm4 8h14" },
 ];
 
 interface SiteHeaderProps {

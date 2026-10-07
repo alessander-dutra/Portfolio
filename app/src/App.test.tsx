@@ -61,6 +61,46 @@ describe("portfolio application shell", () => {
         "href",
       );
     }
+    expect(dock.querySelectorAll("svg")).toHaveLength(6);
+  });
+
+  it("displays the expertise ticker with verified skills and a hidden visual duplicate", () => {
+    render(<App />);
+
+    const ticker = screen.getByRole("region", {
+      name: "Tecnologias e competências",
+    });
+    const skills = within(ticker).getByRole("list", {
+      name: "Especialidades profissionais",
+    });
+    for (const skill of [
+      "Estratégia de produto",
+      "IA generativa",
+      "PCI-DSS",
+      "Power BI",
+      "AWS",
+      "Oracle Cloud",
+      "SQL Server",
+      "Low-code",
+    ]) {
+      expect(within(skills).getByText(skill)).toBeInTheDocument();
+    }
+    expect(
+      ticker.querySelector('[aria-hidden="true"].expertise-track-copy'),
+    ).toBeInTheDocument();
+  });
+
+  it("uses accessible vector icons for professional social links", () => {
+    render(<App />);
+
+    const socialLinks = screen.getByRole("list", { name: "Redes e contato" });
+    for (const name of ["LinkedIn", "GitHub", "Email", "WhatsApp"]) {
+      expect(
+        within(socialLinks)
+          .getByRole("link", { name })
+          .querySelector("svg"),
+      ).toBeInTheDocument();
+    }
   });
 
   it("introduces the portfolio with a greeting and a profile image", () => {
@@ -76,14 +116,18 @@ describe("portfolio application shell", () => {
     render(<App />);
 
     const specialties = screen.getByRole("list", {
-      name: "Áreas de atuação",
+      name: "Especialidades profissionais",
     });
-    expect(within(specialties).getByText("Estratégia de produto")).toBeInTheDocument();
+    expect(
+      within(specialties).getByText("Estratégia de produto"),
+    ).toBeInTheDocument();
     expect(within(specialties).getByText("IA generativa")).toBeInTheDocument();
-    expect(within(specialties).getByText("Meios de pagamento")).toBeInTheDocument();
-    expect(specialties.compareDocumentPosition(document.getElementById("sobre")!)).toBe(
-      Node.DOCUMENT_POSITION_FOLLOWING,
-    );
+    expect(
+      within(specialties).getByText("Meios de pagamento"),
+    ).toBeInTheDocument();
+    expect(
+      specialties.compareDocumentPosition(document.getElementById("sobre")!),
+    ).toBe(Node.DOCUMENT_POSITION_FOLLOWING);
   });
 
   it("uses the system color preference when no saved theme exists", () => {

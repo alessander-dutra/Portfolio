@@ -48,6 +48,7 @@
 - [x] Os links de navegação apontam para seções existentes e a versão mobile possui alternativa acessível.
 - [x] Hero usa apenas nome, cargos, contatos e imagem reais; nenhuma disponibilidade ou currículo é presumida.
 - [x] A composição inclui cabeçalho flutuante, hero amplo, faixa de especialidades e dock de navegação inspirados no modelo de referência.
+- [x] Ícones vetoriais identificam redes sociais e âncoras da dock; faixa de especialidades percorre continuamente, pausa em interação e para sob movimento reduzido.
 - [x] Tema respeita preferência inicial do sistema, persiste escolha e possui foco/estado acessível.
 
 **Verificação:**
